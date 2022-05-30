@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "8b4f9e12-2481-484c-a61c-5e9232720f96",
+		"name": "heroku-JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "取得個人資料",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTNhMTFjZTJlZGEwMzQ5OGM2NGI0OCIsImlhdCI6MTY1Mzg3NjEwNywiZXhwIjoxNjU0NDgwOTA3fQ.Gf6WOZkxeTIPxwZ0DSq2dfNomzMgkPBn6fxdEfqnL5M",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://boiling-crag-73032.herokuapp.com/users/profile",
+					"protocol": "https",
+					"host": [
+						"boiling-crag-73032",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得所有人資料",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTNhMTFjZTJlZGEwMzQ5OGM2NGI0OCIsImlhdCI6MTY1Mzg3NjEwNywiZXhwIjoxNjU0NDgwOTA3fQ.Gf6WOZkxeTIPxwZ0DSq2dfNomzMgkPBn6fxdEfqnL5M",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\":\"6280771bfa9388f97ae819da\",\n    \"content\":\"請填這個112333內容\"\n   \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://boiling-crag-73032.herokuapp.com/users/allusers",
+					"protocol": "https",
+					"host": [
+						"boiling-crag-73032",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"allusers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "編輯會員資料",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTNhMTFjZTJlZGEwMzQ5OGM2NGI0OCIsImlhdCI6MTY1Mzg3NjEwNywiZXhwIjoxNjU0NDgwOTA3fQ.Gf6WOZkxeTIPxwZ0DSq2dfNomzMgkPBn6fxdEfqnL5M",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"photo\":\"qoo.jog\",\n    \"name\":\"更新這個人是jojo\",\n    \"gendaer\":\"male\"\n\n   \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://boiling-crag-73032.herokuapp.com/users/profile/6293a11ce2eda03498c64b48",
+					"protocol": "https",
+					"host": [
+						"boiling-crag-73032",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"profile",
+						"6293a11ce2eda03498c64b48"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "註冊密碼和會員",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"9090ddfdjk@mail.com.tw\",\n    \"password\":\"1qaz2wsx\",\n    \"name\":\"aniyaya\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://boiling-crag-73032.herokuapp.com/users/sign_up",
+					"protocol": "https",
+					"host": [
+						"boiling-crag-73032",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"sign_up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登入密碼和帳號",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"9090ddfdjk@mail.com.tw\",\n    \"password\":\"1qaz2wsx\"\n  \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://boiling-crag-73032.herokuapp.com/users/sign_in",
+					"protocol": "https",
+					"host": [
+						"boiling-crag-73032",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"sign_in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "密碼重啟",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTNhMTFjZTJlZGEwMzQ5OGM2NGI0OCIsImlhdCI6MTY1Mzg0NzY0MCwiZXhwIjoxNjU0NDUyNDQwfQ.GU0bymbRxYwNZlFmtmMgnX7Tzv59ReuACFQVzZgRsGM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\":\"1qaz@WSX\", \n    \"confirmPassword\":\"1qaz@WSX\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3008/updatePassword/6293a11ce2eda03498c64b48",
+					"host": [
+						"localhost"
+					],
+					"port": "3008",
+					"path": [
+						"updatePassword",
+						"6293a11ce2eda03498c64b48"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "觀看所有人動態",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTNhMTFjZTJlZGEwMzQ5OGM2NGI0OCIsImlhdCI6MTY1Mzg3NjEwNywiZXhwIjoxNjU0NDgwOTA3fQ.Gf6WOZkxeTIPxwZ0DSq2dfNomzMgkPBn6fxdEfqnL5M",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://boiling-crag-73032.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"boiling-crag-73032",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "張貼個人貼文",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTNhMTFjZTJlZGEwMzQ5OGM2NGI0OCIsImlhdCI6MTY1Mzg3NjEwNywiZXhwIjoxNjU0NDgwOTA3fQ.Gf6WOZkxeTIPxwZ0DSq2dfNomzMgkPBn6fxdEfqnL5M",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"阿尼雅\",\n    \"content\":\"想去樂園\",\n    \"image\":\"123.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://boiling-crag-73032.herokuapp.com/post",
+					"protocol": "https",
+					"host": [
+						"boiling-crag-73032",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "看個人動態",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTNhMTFjZTJlZGEwMzQ5OGM2NGI0OCIsImlhdCI6MTY1Mzg0NzY0MCwiZXhwIjoxNjU0NDUyNDQwfQ.GU0bymbRxYwNZlFmtmMgnX7Tzv59ReuACFQVzZgRsGM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://boiling-crag-73032.herokuapp.com/post/6294349ae2bae60a8ebd31ca",
+					"protocol": "https",
+					"host": [
+						"boiling-crag-73032",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						"6294349ae2bae60a8ebd31ca"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

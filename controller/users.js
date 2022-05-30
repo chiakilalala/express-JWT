@@ -107,6 +107,7 @@ const User ={
     if (!user || !auth) {
       return appError(400, '帳號或密碼錯誤，請重新輸入！', next);
     }
+    console.log(user)
     generateSendJWT(user, 200, res);
 
  }),
