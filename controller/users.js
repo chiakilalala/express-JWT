@@ -61,8 +61,8 @@ const User ={
       email = email ? email.trim() : email
       password = password ? password.trim() : password
       //Email 是否已被註冊過，先在資料庫尋找是否已存在 email
-      const user =await Users.findOne({email}).count();
-      if(user !==0){
+      const user =await Users.findOne({email});
+      if(user){
         return appError(400, '帳號已被註冊！', next);
       }
       // 內容不可為空
