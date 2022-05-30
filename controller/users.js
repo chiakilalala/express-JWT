@@ -63,23 +63,23 @@ const User ={
       //Email 是否已被註冊過，先在資料庫尋找是否已存在 email
       const user =await Users.findOne({email}).count();
       if(user !==0){
-        return appError('400', '帳號已被註冊！', next);
+        return appError(400, '帳號已被註冊！', next);
       }
       // 內容不可為空
       if(!email ||!password ||!name){
-        return appError('400', '欄位不正確！', next);
+        return appError(400, '欄位不正確！', next);
       }
       // 名字要2碼以上
       if(!validator.isLength(name,{minn:2})){
-        return appError('400', '暱稱至少 2 個字元以上', next);
+        return appError(400, '暱稱至少 2 個字元以上', next);
       }
        // 密碼 8 碼以上
        if (!validator.isLength(password, { min: 8 })) {
-        return appError('400', '密碼需至少 8 碼以上，並中英混合', next);
+        return appError(400, '密碼需至少 8 碼以上，並中英混合', next);
     }
       //是否為email
       if(!validator.isEmail(email)){
-        return appError('400', 'Email 格式不正確', next);
+        return appError(400, 'Email 格式不正確', next);
       }
 
       //密碼加密
