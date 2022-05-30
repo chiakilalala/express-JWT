@@ -3,7 +3,8 @@ const jwt = require('jsonwebtoken');
 const appError = require('../service/appError');
 const handleErrorAsync = require('../service/handleErrorAsync');
 const Users = require('../models/userModel');
-
+const dotenv =require('dotenv');
+dotenv.config({path:'./config.env'});
 
 const isAuth =handleErrorAsync(async (req,res,next)=>{
     //token is exist?
@@ -33,7 +34,7 @@ const isAuth =handleErrorAsync(async (req,res,next)=>{
 });
 const generateSendJWT =(user, statusCode,res)=>{
       const token =jwt.sign({id:user._id},process.env.JWT_SECRET,{
-           expiresIn: process.env.JWT_EXPIRES_DAY
+            expiresIn: process.env.JWT_EXPIRES_DAY
       });
       console.log(token)
       user.password =undefined;
