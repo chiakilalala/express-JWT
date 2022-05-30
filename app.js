@@ -15,6 +15,7 @@ console.log(process.env.NODE_ENV)
 
 var postRouter = require('./routes/post');
 var usersRouter = require('./routes/users');
+var uploadRouter = require('./routes/upload');
 
 
 var app = express();
@@ -32,6 +33,7 @@ app.use(cors());
 
 app.use('/', postRouter);
 app.use('/users', usersRouter);
+app.use('/upload', uploadRouter);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(function(err,req,res,next){

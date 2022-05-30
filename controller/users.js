@@ -119,10 +119,10 @@ const User ={
   }
     const {password ,confirmPassword} =req.body;
     if (!validator.isLength(password,{min:8})) {
-      return appError('400', '密碼需至少 8 碼以上，並中英混合', next);
+      return appError(400, '密碼需至少 8 碼以上，並中英混合', next);
     }
     if(password !== confirmPassword){
-      return appError('400', '密碼不一樣', next);
+      return appError(400, '密碼不一樣', next);
     }
     newPassword = await bcrypt.hash(password, 12);
     const user = await Users.findByIdAndUpdate(UserId,{
