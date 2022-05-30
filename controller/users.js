@@ -70,7 +70,7 @@ const User ={
         return appError(400, '欄位不正確！', next);
       }
       // 名字要2碼以上
-      if(!validator.isLength(name,{minn:2})){
+      if(!validator.isLength(name,{min:2})){
         return appError(400, '暱稱至少 2 個字元以上', next);
       }
        // 密碼 8 碼以上
