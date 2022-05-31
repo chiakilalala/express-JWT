@@ -32,23 +32,44 @@ const isAuth =handleErrorAsync(async (req,res,next)=>{
     next();
 
 });
+
 const generateSendJWT =(user, statusCode,res)=>{
-      const token =jwt.sign({id:user._id},process.env.JWT_SECRET,{
-            expiresIn: process.env.JWT_EXPIRES_DAY
-      });
-      console.log(token)
-      user.password =undefined;
-      res.status(statusCode).json({
-        status:'success',
-        user:{
-          token,
-          id:user._id,
-          name:user.name
-        }
-      });
+
+  const token =jwt.sign({id:user._id},process.env.JWT_SECRET,{
+        expiresIn: process.env.JWT_EXPIRES_DAY
+  });
+  console.log(token)
+  user.password =undefined;
+  res.status(statusCode).json({
+          status:'success',
+          user:{
+            token,
+            id:user._id,
+            name:user.name
+          }
+  });
+};
+
+const generateUrlJWT =(user, statusCode,res)=>{
+
+  const token =jwt.sign({id:user._id},process.env.JWT_SECRET,{
+        expiresIn: process.env.JWT_EXPIRES_DAY
+  });
+  console.log(token)
+  //重新導向到前端
+  //res.redirect(`/about?token=${token}&name=${user.name}`)
+  // res.redirect(`heroku url/about?token=${token}&name=${user.name}`)
+  res.status(statusCode).send({
+    status:true,
+    token, 
+    name:user.name
+    
+});
+ 
 };
 
 module.exports ={
   isAuth,
-  generateSendJWT
+  generateSendJWT,
+  generateUrlJWT
 }

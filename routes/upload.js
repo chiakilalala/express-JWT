@@ -4,7 +4,8 @@ const router = express.Router();
 const { isAuth } = require('../service/auth');
 const uploadController = require('../controller/upload');
 const upload = require('../service/image');
-router.post('/',isAuth,upload,uploadController.uploadfile);
+
+router.post('/api/v1/upload',isAuth,upload,uploadController.uploadfile);
 
 module.exports = router;
 

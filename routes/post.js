@@ -14,6 +14,10 @@ router.post('/:id/likes',isAuth, PostController.creatlikes);
 //¨ú®øÂIÆg
 router.delete('/:id/likes',isAuth, PostController.deletelike);
 
+
+
+  
+
 module.exports = router;
 
 

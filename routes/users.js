@@ -2,7 +2,9 @@
 var express = require('express');
 var router = express.Router();
 const usersController = require('../controller/users');
-const { isAuth } = require('../service/auth');
+const { isAuth, generateUrlJWT, generateSendJWT } = require('../service/auth');
+const passport = require('passport');
+// var session = require('express-session'); 
 
 
 /*註冊 */
@@ -24,5 +26,20 @@ router.get('/getLikeList',isAuth, usersController.getLikeList);
 
 //取得個人貼文列表
 router.get('/:id',isAuth, usersController.getPostList);
+
+router.get('/google', passport.authenticate('google', { scope: ['profile']}));
+ 
+
+router.get('/google/callback', passport.authenticate('google', { session: false }), (req, res) => {
+  res.send({
+    status: true,
+    data: {
+      id: req.user.id,
+      name: req.user.displayName
+    }
+  });
+})
+ 
+
 
 module.exports = router;

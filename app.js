@@ -5,6 +5,8 @@ var logger = require('morgan');
 const cors = require('cors');
 const dotenv =require('dotenv');
 dotenv.config({path: './config.env'});
+
+var session = require('express-session'); 
 const errorhandle =require('./service/errorhandle');
 
 const swaggerUi = require('swagger-ui-express');
@@ -21,6 +23,7 @@ var uploadRouter = require('./routes/upload');
 var app = express();
 
 require('./connection');
+require('./connection/passport');
 
 app.use(logger('dev'));
 app.use(express.json());
