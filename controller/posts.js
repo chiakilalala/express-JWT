@@ -3,6 +3,7 @@ const successhandle = require('../service/successhandle');
 
 const handleErrorAsync = require('../service/handleErrorAsync');
 const appError = require('../service/appError');
+const validator = require('validator');
 const Posts = require('../models/postsModel');
 
 
@@ -48,7 +49,32 @@ const posts ={
       successhandle(res,200,getAllPosts);
 
  }),
-
+ creatlikes:handleErrorAsync(async(req,res,next)=>{
+      const _id = req.params.id;
+      console.log(_id)
+        //是否為有效id
+      if(!validator.isMongoId(_id)){
+        return appError(400, '沒有這個id', next);
+      }
+      const getlikes =await Posts.findOneAndUpdate(
+        { _id},
+        { $addToSet: { likes: req.user.id } }//如果有重複的id就不會增加likes
+      );
+      successhandle(res,200,getlikes);
+ }),
+ deletelike:handleErrorAsync(async(req,res,next)=>{
+  const _id = req.params.id;
+  console.log(_id)
+    //是否為有效id
+  if(!validator.isMongoId(_id)){
+    return appError(400, '沒有這個id', next);
+  }
+  const dellike=await Posts.findOneAndUpdate(
+      { _id},
+      { $pull: { likes: req.user.id } }//如果陣列有這id就會拿掉
+    );
+    successhandle(res,200,dellike);
+}),
 
 
 }

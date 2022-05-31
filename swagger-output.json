@@ -30,8 +30,16 @@
         "responses": {}
       }
     },
-    "/post/": {
+    "/post": {
       "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/{id}/likes": {
+      "delete": {
         "tags": [],
         "description": "",
         "parameters": [],
@@ -79,6 +87,14 @@
       }
     },
     "/users/updatePassword/{id}": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/upload/": {
       "post": {
         "tags": [],
         "description": "",

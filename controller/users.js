@@ -7,7 +7,7 @@ const successhandle = require('../service/successhandle');
 const handleErrorAsync = require('../service/handleErrorAsync');
 const { generateSendJWT } = require('../service/auth');
 const Users = require('../models/userModel');
-
+const Posts = require('../models/postsModel');
 const User ={
   getUsers:handleErrorAsync(async (req,res)=>{
     
@@ -131,6 +131,23 @@ const User ={
     generateSendJWT(user, 200, res);
   
  }),
+ getLikeList:handleErrorAsync(async(req,res,next) =>{
+  const likeList = await Posts.find({
+    likes: { $in: [req.user.id] }//要找到有like欄位的id
+  }).populate({
+    path:"user",
+    select:"name _id"
+  });
+  console.log(res)
+  successhandle(res,'資料讀取成功',likeList);
+ }),
+ getPostList:handleErrorAsync(async(req,res,next) =>{
+
+  const user = req.params.id;
+  const postsList = await Posts.find({user});
+  console.log(postsList)
+  successhandle(res,'資料讀取成功',postsList);
+ })
 
 
 };
