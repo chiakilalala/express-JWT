@@ -3,8 +3,7 @@ const jwt = require('jsonwebtoken');
 const appError = require('../service/appError');
 const handleErrorAsync = require('../service/handleErrorAsync');
 const Users = require('../models/userModel');
-const dotenv =require('dotenv');
-dotenv.config({path:'./config.env'});
+
 
 const isAuth =handleErrorAsync(async (req,res,next)=>{
     //token is exist?
@@ -57,8 +56,8 @@ const generateUrlJWT =(user, statusCode,res)=>{
   });
   console.log(token)
   //重新導向到前端
-  //res.redirect(`/about?token=${token}&name=${user.name}`)
-  // res.redirect(`heroku url/about?token=${token}&name=${user.name}`)
+  //res.redirect(`/callback?token=${token}&name=${user.name}`)
+  // res.redirect(`heroku url/callback?token=${token}&name=${user.name}`)
   res.status(statusCode).send({
     status:true,
     token, 

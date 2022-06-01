@@ -46,7 +46,7 @@
         "responses": {}
       }
     },
-    "/users/sign_in": {
+    "/users/sign_up": {
       "post": {
         "tags": [],
         "description": "",
@@ -54,7 +54,7 @@
         "responses": {}
       }
     },
-    "/users/sign_up": {
+    "/users/sign_in": {
       "post": {
         "tags": [],
         "description": "",
@@ -94,7 +94,39 @@
         "responses": {}
       }
     },
-    "/upload/": {
+    "/users/getLikeList": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/users/google": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/users/google/callback": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/upload/api/v1/upload": {
       "post": {
         "tags": [],
         "description": "",

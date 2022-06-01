@@ -27,17 +27,14 @@ router.get('/getLikeList',isAuth, usersController.getLikeList);
 //取得個人貼文列表
 router.get('/:id',isAuth, usersController.getPostList);
 
-router.get('/google', passport.authenticate('google', { scope: ['profile']}));
+router.get('/google', passport.authenticate('google', {
+  scope: [ 'email', 'profile' ],
+}));
+
  
 
 router.get('/google/callback', passport.authenticate('google', { session: false }), (req, res) => {
-  res.send({
-    status: true,
-    data: {
-      id: req.user.id,
-      name: req.user.displayName
-    }
-  });
+  generateUrlJWT(req.user, res);
 })
  
 

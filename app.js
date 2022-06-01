@@ -1,7 +1,7 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const cors = require('cors');
 const dotenv =require('dotenv');
 dotenv.config({path: './config.env'});
@@ -38,6 +38,14 @@ app.use('/', postRouter);
 app.use('/users', usersRouter);
 app.use('/upload', uploadRouter);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
+// 404 錯誤
+app.use(function(req, res, next) {
+  res.status(404).json({
+    status: 'error',
+    message: "無此路由資訊",
+  });
+});
 
 app.use(function(err,req,res,next){
   //開發環境dev

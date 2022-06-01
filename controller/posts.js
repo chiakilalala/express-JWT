@@ -62,7 +62,7 @@ const posts ={
       );
       successhandle(res,200,getlikes);
  }),
- deletelike:handleErrorAsync(async(req,res,next)=>{
+ deletelike:handleErrorAsync(async(req, res, next) => {
   const _id = req.params.id;
   console.log(_id)
     //是否為有效id
@@ -73,7 +73,7 @@ const posts ={
       { _id},
       { $pull: { likes: req.user.id } }//如果陣列有這id就會拿掉
     );
-    successhandle(res,200,dellike);
+    successhandle(res,201,dellike);
 }),
 
 
