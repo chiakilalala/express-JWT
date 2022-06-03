@@ -7,15 +7,16 @@ const Users = require('../models/userModel');
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 
-passport.use(new GoogleStrategy({
+passport.use(new GoogleStrategy(
+  {
     clientID:process.env.GOOGLE_CLIENT_ID,
     clientSecret:process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1:3008//users/google/callback",
- 
+    callbackURL:'http://localhost:3008/users/google/callback',
+
    
   },
   async(accessToken, refreshToken, profile, cb)=> {
-      const user = await User.findOne({ googleId: profile.id });
+      const user = await Users.findOne({ googleId: profile.id });
       console.log( profile,'profile')
       if(user) {
         console.log('使用者已存在');

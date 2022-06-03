@@ -56,15 +56,16 @@ const generateUrlJWT =(user, statusCode,res)=>{
   });
   console.log(token)
   //重新導向到前端
-  //res.redirect(`/callback?token=${token}&name=${user.name}`)
-  // res.redirect(`heroku url/callback?token=${token}&name=${user.name}`)
-  res.status(statusCode).send({
-    status:true,
-    token, 
-    name:user.name
-    
-});
- 
+
+  res.redirect(`/callback?token=${token}&name=${user.name}`)
+  //res.redirect(`heroku url/callback?token=${token}&name=${user.name}`)
+  //   res.status(statusCode).send({
+  //   status:true,
+  //   token, 
+  //   name:user.name
+      
+  // });
+
 };
 
 module.exports ={

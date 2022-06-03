@@ -6,7 +6,7 @@ const cors = require('cors');
 const dotenv =require('dotenv');
 dotenv.config({path: './config.env'});
 
-var session = require('express-session'); 
+
 const errorhandle =require('./service/errorhandle');
 
 const swaggerUi = require('swagger-ui-express');

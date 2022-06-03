@@ -4,7 +4,7 @@ var router = express.Router();
 const usersController = require('../controller/users');
 const { isAuth, generateUrlJWT, generateSendJWT } = require('../service/auth');
 const passport = require('passport');
-// var session = require('express-session'); 
+
 
 
 /*µù¥U */
@@ -30,8 +30,6 @@ router.get('/:id',isAuth, usersController.getPostList);
 router.get('/google', passport.authenticate('google', {
   scope: [ 'email', 'profile' ],
 }));
-
- 
 
 router.get('/google/callback', passport.authenticate('google', { session: false }), (req, res) => {
   generateUrlJWT(req.user, res);

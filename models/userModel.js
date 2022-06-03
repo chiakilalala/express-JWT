@@ -1,13 +1,8 @@
 const mongoose = require('mongoose');
-const userSchema = new mongoose.Schema(
-  {
+const userSchema = new mongoose.Schema({
     name: {
       type: String,
       required: [true, '請輸入您的名字']
-    },
-    gender: {
-      type: String,
-      enum: ['male', 'female']
     },
     email: {
       type: String,
@@ -16,21 +11,25 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       select: false
     },
-    password: {
+    photo: String,
+    sex:{
       type: String,
-      required: [true, '密碼未填寫'],
-      minlength: [8, '密碼至少 8 個字元以上'],
+      enum:["male","female"]
+    },
+    password:{
+      type: String,
+      required: [true,'請輸入密碼'],
+      minlength: 8,
       select: false
     },
-    photo: {
-      type: String,
-      default: '',
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      select: false
     },
-    googleId:String
-  },
-  { versionKey: false }
-);
-
+    googleId: String,
+  });
+// User
 const User = mongoose.model('user', userSchema);
 
 module.exports = User;
